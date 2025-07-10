@@ -98,6 +98,11 @@ const config = {
           },
         ],
       },
+      colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: false,
+      respectPrefersColorScheme: false,
+      },
       footer: {
         style: 'dark',
         copyright: `Copyright © ${new Date().getFullYear()} JTMurley Portfolio, Inc. Built with Docusaurus.`,

@@ -220,8 +220,8 @@ const projects = [
     title: 'Track That Mate - TTM',
     description: 'Re-thinking how calorie tracking is done, peer pressure never felt so good',
     tech: ['.NET', 'AWS', 'Lambda', 'DynamoDB', "API Gateway"],
-    link: '#',
-    github: '#' ////TODO come back and add
+    link: 'https://jtmurley.github.io/portfolio/',
+    github: 'https://github.com/JTMurley/portfolio'
   }
 ];
 
