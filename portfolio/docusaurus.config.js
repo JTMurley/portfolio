@@ -102,11 +102,13 @@ const config = {
             label: 'Projects',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/docs/insights', label: 'insights', position: 'left'},
           {
             href: 'https://github.com/JTMurley',
             label: 'GitHub',
             position: 'right',
           },
+
         ],
       },
       colorMode: {
@@ -125,7 +127,7 @@ const config = {
 
        announcementBar: {
         id: `announcementBar-v0`,
-        content: `🚧 <b>This website is in early development (v0) and a work in progress. Content will change!</b>`,
+        content: `🚧 <b>This website is in early development (v0) and a work in progress. Content will change!</b> 🚧`,
         backgroundColor: 'var(--ifm-background-color)', // or any CSS color value
         textColor: 'var(--ifm-color-primary-darkest)',  // or any CSS color value
         isCloseable: true,
