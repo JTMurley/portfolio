@@ -20,6 +20,17 @@ const config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
+  plugins: [
+    [
+      "posthog-docusaurus",
+      {
+        apiKey: process.env.POSTHOG_API_KEY || "DEV",
+        appUrl: "https://us.i.posthog.com", // optional, defaults to "https://us.i.posthog.com"
+        enableInDevelopment: false, // optional
+      },
+    ],
+  ],
+
   // Set the production url of your site here
   url: 'https://jtmurley.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
