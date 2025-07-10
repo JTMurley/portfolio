@@ -12,8 +12,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'JTMurley Portfolio',
   tagline: 'Cool stuff',
-  favicon: 'img/favicon.ico',
-  trailingSlash: false,
+  //favicon: 'img/favicon.ico',
+  trailingSlash: true,
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -28,7 +28,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'JTMurley', // Usually your GitHub org/user name.
+  organizationName: 'jtmurley', // Usually your GitHub org/user name.
   projectName: 'portfolio', // Usually your repo name.
 
   onBrokenLinks: 'throw',
