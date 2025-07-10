@@ -239,7 +239,7 @@ function HeroSection() {
             </h1>
             <h2 className={styles.heroSubtitle}>Full-Stack Engineer</h2>
             <p className={styles.heroDescription}>
-              Expertise in both Microsoft and AWS ecosystems, utilising cutting-edge technologies to develop and deploy not only bespoke software solutions but also modular and scalable serverless and microservices to support existing monolithic applications.
+              Expertise in both Microsoft and AWS ecosystems, utilising cutting-edge technologies to develop and deploy not only bespoke software solutions but also modular and scalable serverless and microservices to support existing monolithic applications. Can you find the easter egg in the background 🥸.
             </p>
             <div className={styles.heroButtons}>
               <a href="#projects" className={clsx('button button--primary button--lg', styles.ctaButton)}>
