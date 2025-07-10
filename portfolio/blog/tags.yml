@@ -1,0 +1,9 @@
+decap:
+  label: Decap CMS
+  permalink: /decap
+  description: Decap CMS tag
+
+docusaurus:
+  label: Docusaurus
+  permalink: /docusaurus
+  description: Docusaurus tag

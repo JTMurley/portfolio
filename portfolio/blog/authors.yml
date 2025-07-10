@@ -1,0 +1,9 @@
+jtmurley:
+  name: Jack Murley
+  title: Just a dev
+  url: https://www.linkedin.com/in/jackmurley/
+  image_url: https://github.com/jtmurley.png
+  page: true
+  socials:
+    linkedin: jackmurley
+    github: jtmurley
