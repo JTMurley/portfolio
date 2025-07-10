@@ -7,6 +7,8 @@ jobs:
   build:
     name: Build Docusaurus
     runs-on: ubuntu-latest
+    env:
+      POSTHOG_API_KEY: ${{ secrets.POSTHOG_API_KEY }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -24,8 +26,6 @@ jobs:
       - name: Build website
         run: yarn build
         working-directory: portfolio
-        env:
-          POSTHOG_API_KEY: ${{ secrets.POSTHOG_API_KEY }}
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
@@ -35,7 +35,7 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     needs: build
-    
+
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
       pages: write # to deploy to Pages
