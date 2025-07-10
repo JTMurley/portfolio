@@ -13,6 +13,7 @@ const config = {
   title: 'JTMurley Portfolio',
   tagline: 'Cool stuff',
   favicon: 'img/favicon.ico',
+  trailingSlash: false,
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
