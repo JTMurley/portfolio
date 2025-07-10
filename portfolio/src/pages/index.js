@@ -213,15 +213,15 @@ const projects = [
     title: 'Portfolio Website',
     description: 'This website, built with 💖',
     tech: ['React', 'Docusaurus ', 'Decap CMS', 'Algolia', 'PostHog Cloud'],
-    link: '#',
-    github: '#' //TODO come back and add
-  },
-  {
-    title: 'Track That Mate - TTM',
-    description: 'Re-thinking how calorie tracking is done, peer pressure never felt so good',
-    tech: ['.NET', 'AWS', 'Lambda', 'DynamoDB', "API Gateway"],
     link: 'https://jtmurley.github.io/portfolio/',
     github: 'https://github.com/JTMurley/portfolio'
+  },
+  {
+    title: 'Track That Mate - TTM - WIP',
+    description: 'Re-thinking how calorie tracking is done, peer pressure never felt so good',
+    tech: ['.NET', 'AWS', 'Lambda', 'DynamoDB', "API Gateway"],
+    link: '#',
+    github: '#'
   }
 ];
 
@@ -355,7 +355,7 @@ function ContactSection() {
           </p>
           <div className={styles.contactButtons}>
             <a href="mailto:jack.murley@gmail.com" className={clsx('button button--primary button--lg')}>
-              Send Email
+              Email
             </a>
             <a href="https://www.linkedin.com/in/jackmurley/" className={clsx('button button--outline button--lg')}>
               LinkedIn

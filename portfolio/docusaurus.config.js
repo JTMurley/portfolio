@@ -111,7 +111,7 @@ const config = {
       },
       colorMode: {
       defaultMode: 'dark',
-      disableSwitch: false,
+      disableSwitch: true,
       respectPrefersColorScheme: false,
       },
       footer: {
@@ -121,6 +121,14 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+      },
+
+       announcementBar: {
+        id: `announcementBar-v0`,
+        content: `🚧 <b>This website is in early development (v0) and a work in progress. Content will change!</b>`,
+        backgroundColor: 'var(--ifm-background-color)', // or any CSS color value
+        textColor: 'var(--ifm-color-primary-darkest)',  // or any CSS color value
+        isCloseable: true,
       },
     }),
 };
