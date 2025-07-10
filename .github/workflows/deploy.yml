@@ -26,6 +26,8 @@ jobs:
       - name: Build website
         run: yarn build
         working-directory: portfolio
+        with:
+          POSTHOG_API_KEY: ${{ secrets.POSTHOG_API_KEY }}
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3

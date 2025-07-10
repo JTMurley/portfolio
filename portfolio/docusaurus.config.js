@@ -6,6 +6,8 @@
 
 import {themes as prismThemes} from 'prism-react-renderer';
 
+console.log("PostHog key is set:", !!process.env.POSTHOG_API_KEY);
+
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 /** @type {import('@docusaurus/types').Config} */
