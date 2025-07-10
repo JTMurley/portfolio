@@ -6,12 +6,6 @@
 
 import {themes as prismThemes} from 'prism-react-renderer';
 
-const key = process.env.POSTHOG_API_KEY || "";
-console.log(
-  "PostHog key preview:",
-  key.length >= 8 ? `${key.slice(0, 4)}...${key.slice(-4)}` : "(too short)"
-);
-
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 /** @type {import('@docusaurus/types').Config} */
@@ -30,9 +24,9 @@ const config = {
     [
       "posthog-docusaurus",
       {
-        apiKey: process.env.POSTHOG_API_KEY,
+        apiKey: process.env.POSTHOG_API_KEY || "DEV",
         appUrl: "https://us.i.posthog.com", // optional, defaults to "https://us.i.posthog.com"
-        enableInDevelopment: true, // optional
+        enableInDevelopment: false, // optional
       },
     ],
   ],
