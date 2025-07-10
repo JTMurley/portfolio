@@ -23,11 +23,19 @@ jobs:
         run: yarn install --frozen-lockfile
         working-directory: portfolio
 
+      - name: Check POSTHOG_API_KEY presence
+        run: |
+          if [ -z "$POSTHOG_API_KEY" ]; then
+            echo "POSTHOG_API_KEY is NOT set"
+            exit 1
+          else
+            echo "POSTHOG_API_KEY is set"
+          fi
+        working-directory: portfolio
+
       - name: Build website
         run: yarn build
         working-directory: portfolio
-        with:
-          POSTHOG_API_KEY: ${{ secrets.POSTHOG_API_KEY }}
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
