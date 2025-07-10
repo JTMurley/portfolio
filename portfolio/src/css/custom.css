@@ -28,3 +28,22 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+.docusaurus-announcement-bar .clean-btn {
+  color: #fff !important;
+}
+
+/* Force the announcement bar close (X) button and icon to be white in all modes */
+.docusaurus-announcement-bar .closeButton_CVFx,
+.docusaurus-announcement-bar .closeButton_CVFx svg,
+.docusaurus-announcement-bar .closeButton_CVFx path,
+.docusaurus-announcement-bar .closeButton_CVFx g {
+  color: #fff !important;
+  stroke: #fff !important;
+  fill: #fff !important;
+  opacity: 1 !important;
+}
+
+.announcementBarClose_gvF7 svg g {
+  stroke: #fff !important;
+}
