@@ -8,5 +8,5 @@
   <a href="https://github.com/JTMurley/portfolio/network/members"><img src="https://img.shields.io/github/forks/JTMurley/portfolio?style=social" alt="Forks"></a>
   <a href="https://github.com/JTMurley/portfolio/stargazers"><img src="https://img.shields.io/github/stars/JTMurley/portfolio?style=social" alt="Stars"></a>
   <a href="https://github.com/JTMurley/portfolio"><img src="https://img.shields.io/github/languages/code-size/JTMurley/portfolio" alt="Code Size"></a>
-  <a href="https://jtmurley.com/"><img src="https://img.shields.io/website?url=https%3A%2F%2Fjtmurley.com" alt="Website/Demo"></a>
+  <a href="https://jtmurley.github.io/portfolio/"><img src="https://img.shields.io/website?url=https%3A%2F%2Fjtmurley.com" alt="Website/Demo"></a>
 </p>
