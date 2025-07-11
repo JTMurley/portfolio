@@ -225,6 +225,63 @@ const projects = [
   }
 ];
 
+// Add this experience data array after the projects array (around line 38)
+const experiences = [
+  {
+    id: 1,
+    company: 'Champion Data',
+    position: 'Senior Engineer',
+    period: '03/2023 - 06/2025',
+    description: 'Senior software Engineer within the cloud services team developing bespoke platforms',
+    technologies: ['.NET', 'AWS', 'DynamoDB', 'API Gateway', 'Docker', 'React', 'GitLab CI/CD', 'SNS', 'Auth0', 'Docusaurus', 'Decap CMS', 'ECS', 'EC2', 'S3', '.NET Aspire', 'AWS CDK'],
+    achievements: [
+      'Spearheaded the initiation and implementation of the companies first POC documentation hub that has now become the AFL SDP Doc Hub',
+      'Worked with as well as support multiple internal and external clients daily, including Sportsbet, Pointsbet, TAB, Sportcast, Dabble, AFL HQ and Collingwood',
+      'Overhauled existing testing processes and created a new automated test harness enabling the creation of 500 new and existing AFL metrics in under 6 months.'
+    ]
+  },
+  {
+    id: 2,
+    company: 'Carsales',
+    position: 'Software Engineer',
+    period: '06/2022 - 03/2023',
+    description: 'Software Engineer within the Dealer Finance team working directly with FSPs to enable onsite pre-approval using primarily C#, React, AWS and Postgres',
+    technologies: ['.NET', 'React', 'AWS', 'Postgres', 'Docker', 'Github Actions', 'Jenkins', 'RabbitMQ'],
+    achievements: [
+      'Leading and setting Code Review, Development, Release and Maintenance standards',
+      'Championing major releases and OKRs',
+      'Successful migration of 25+ existing legacy pipelines from Jenkins to Github actions',
+      'Running multiple knowledge sharing sessions independently'
+    ]
+  },
+  {
+    id: 3,
+    company: 'Leidos',
+    position: 'Software Engineer',
+    period: '01/2021 - 06/2022',
+    description: 'Software Engineer within the C4ISR division developing bespoke Microservices and web applications using primarily .NET, Angular, T-SQL, Docker and K8s',
+    technologies: ['.NET', 'Angular', 'Jenkins', 'SonarQube', 'Keycloak', 'Docker', 'Kubernetes', 'Microsoft SQL Server', 'Dynamics 365', 'RabbitMQ'],
+    achievements: [
+      'Creation, implementation and configuration of multiple CI/CD and CA pipelines to not only streamline the software development process but also ensuring a higher code quality',
+      'Development of multiple bespoke elasticsearch implementations for existing monolithic applications to replace inefficient and unreliable SQL search queries',
+      'Creation and implementation of multiple keycloak SSO instances to replace existing kerberos sidecar implementations to reduce overall tech debt'
+    ]
+  },
+  {
+    id: 4,
+    company: 'Deakin University',
+    position: 'Associate Research Fellow, Swarm Robotics - Contract',
+    period: '10/2019 - 03/2020',
+    description: 'Associate Research Fellow at Deakin University developing multiple bespoke multi-agent deep reinforcement learning (MADRL) algorithms and simulations using primarily ROS, Python, C++ and Docker',
+    technologies: ['ROS', 'TurtleBot3', 'Python', 'C++', 'Docker'],
+    achievements: [
+      'Implementation and working light maze simulation/reward function to produce a cockroach search and rescue behaviour',
+      'Creation of multiple robots using a new hardware platform I designed based off of the TurtleBot3 Waffle Pi platform rapidly prototyped and created 7 weeks ahead of schedule',
+      'Optimisation of an existing MADRL reward function to increase operational efficiency by 64%'
+    ]
+  }
+];
+
 function HeroSection() {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -343,6 +400,116 @@ function ProjectsSection() {
   );
 }
 
+// Add this ExperienceSection component after the ProjectsSection component (around line 261)
+function ExperienceSection() {
+  const [activeExperience, setActiveExperience] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleExperienceClick = (index) => {
+    setActiveExperience(index);
+  };
+
+  return (
+    <section ref={sectionRef} className={clsx(styles.experience, isVisible && styles.experienceVisible)}>
+      <div className="container">
+        <h2 className={styles.sectionTitle}>Professional Journey</h2>
+        <div className={styles.experienceContainer}>
+          {/* Timeline Navigation */}
+          <div className={styles.timeline}>
+            {experiences.map((exp, index) => (
+              <div
+                key={exp.id}
+                className={clsx(
+                  styles.timelineItem,
+                  index === activeExperience && styles.timelineItemActive
+                )}
+                onClick={() => handleExperienceClick(index)}
+              >
+                <div className={styles.timelineMarker}>
+                  <div className={styles.timelineMarkerInner}></div>
+                </div>
+                <div className={styles.timelineContent}>
+                  <h4 className={styles.timelineCompany}>{exp.company}</h4>
+                  <p className={styles.timelinePeriod}>{exp.period}</p>
+                </div>
+              </div>
+            ))}
+            <div 
+              className={styles.timelineProgress}
+              style={{ 
+                height: `${((activeExperience + 1) / experiences.length) * 100}%` 
+              }}
+            ></div>
+          </div>
+
+          {/* Experience Details */}
+          <div className={styles.experienceDetails}>
+            <div className={styles.experienceCard}>
+              <div className={styles.experienceHeader}>
+                <h3 className={styles.experiencePosition}>
+                  {experiences[activeExperience].position}
+                </h3>
+                <div className={styles.experienceCompany}>
+                  <span className={styles.companyName}>
+                    {experiences[activeExperience].company}
+                  </span>
+                  <span className={styles.experiencePeriod}>
+                    {experiences[activeExperience].period}
+                  </span>
+                </div>
+              </div>
+              
+              <p className={styles.experienceDescription}>
+                {experiences[activeExperience].description}
+              </p>
+
+              <div className={styles.experienceTechnologies}>
+                <h4 className={styles.techTitle}>Technologies Used</h4>
+                <div className={styles.techGrid}>
+                  {experiences[activeExperience].technologies.map((tech, index) => (
+                    <span key={index} className={styles.techItem}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className={styles.experienceAchievements}>
+                <h4 className={styles.achievementsTitle}>Key Achievements</h4>
+                <ul className={styles.achievementsList}>
+                  {experiences[activeExperience].achievements.map((achievement, index) => (
+                    <li key={index} className={styles.achievementItem}>
+                      {achievement}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ContactSection() {
   return (
     <section id="contact" className={styles.contact}>
@@ -380,6 +547,7 @@ export default function Home() {
       <HeroSection />
       <SkillsSection />
       <ProjectsSection />
+      <ExperienceSection />
       <ContactSection />
     </Layout>
   );

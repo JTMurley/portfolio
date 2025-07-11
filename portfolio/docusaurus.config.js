@@ -103,12 +103,19 @@ const config = {
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {to: '/docs/insights', label: 'insights', position: 'left'},
+          {to: 'https://jtmurley.github.io/portfolio/admin', label: 'CMS', position: 'left'},
+          {
+            href: '/portfolio/Jack_Murley_Resume.pdf',
+            label: 'Resume',
+            position: 'right',
+            target: '_blank',
+            rel: 'noopener noreferrer',
+          },
           {
             href: 'https://github.com/JTMurley',
             label: 'GitHub',
             position: 'right',
-          },
-
+          }
         ],
       },
       colorMode: {

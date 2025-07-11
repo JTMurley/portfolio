@@ -413,6 +413,474 @@
   transform: translateY(-2px);
 }
 
+/* Experience Section Styles - Add this after the Contact Section styles (around line 377) */
+
+.experience {
+  padding: 5rem 0;
+  background: var(--ifm-color-emphasis-50);
+  position: relative;
+  overflow: hidden;
+}
+
+.experience::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 0%, rgba(var(--ifm-color-primary-rgb), 0.05) 50%, transparent 100%);
+  z-index: 1;
+}
+
+.experienceContainer {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+.experienceVisible .experienceContainer {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Timeline Styles */
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--ifm-color-emphasis-300);
+  z-index: 1;
+}
+
+.timelineProgress {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--ifm-color-primary), var(--ifm-color-primary-dark));
+  transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+  border-radius: 1px;
+}
+
+.timelineItem {
+  position: relative;
+  padding: 1.5rem 0;
+  margin-left: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  padding-left: 1rem;
+}
+
+.timelineItem:hover {
+  background: rgba(var(--ifm-color-primary-rgb), 0.05);
+  transform: translateX(5px);
+}
+
+.timelineItemActive {
+  background: rgba(var(--ifm-color-primary-rgb), 0.1);
+  transform: translateX(10px);
+}
+
+.timelineMarker {
+  position: absolute;
+  left: -2.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background: var(--ifm-color-emphasis-300);
+  border-radius: 50%;
+  z-index: 3;
+  transition: all 0.3s ease;
+}
+
+.timelineItemActive .timelineMarker {
+  background: var(--ifm-color-primary);
+  width: 16px;
+  height: 16px;
+  left: -2.75rem;
+  box-shadow: 0 0 0 4px rgba(var(--ifm-color-primary-rgb), 0.2);
+}
+
+.timelineMarkerInner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  background: var(--ifm-background-color);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.timelineItemActive .timelineMarkerInner {
+  background: white;
+  width: 8px;
+  height: 8px;
+}
+
+.timelineContent {
+  padding-left: 0.5rem;
+}
+
+.timelineCompany {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-800);
+  margin-bottom: 0.25rem;
+  transition: color 0.3s ease;
+}
+
+.timelineItemActive .timelineCompany {
+  color: var(--ifm-color-primary);
+}
+
+.timelinePeriod {
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-600);
+  font-weight: 500;
+}
+
+/* Experience Details */
+.experienceDetails {
+  position: relative;
+}
+
+.experienceCard {
+  background: var(--ifm-card-background-color);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  position: relative;
+  overflow: hidden;
+  animation: slideInFromRight 0.6s ease-out;
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.experienceCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--ifm-color-primary), var(--ifm-color-primary-dark));
+  border-radius: 16px 16px 0 0;
+}
+
+.experienceHeader {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.experiencePosition {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ifm-color-emphasis-900);
+  margin-bottom: 0.5rem;
+  background: linear-gradient(45deg, var(--ifm-color-primary), var(--ifm-color-primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.experienceCompany {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.companyName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.experiencePeriod {
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-600);
+  background: var(--ifm-color-primary-lightest);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.experienceDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 2rem;
+}
+
+.experienceTechnologies {
+  margin-bottom: 2rem;
+}
+
+.techTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-800);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.techTitle::before {
+  content: '🛠️';
+  font-size: 1.2rem;
+}
+
+.techGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.techItem {
+  background: linear-gradient(45deg, var(--ifm-color-primary-lightest), var(--ifm-color-primary-lighter));
+  color: var(--ifm-color-primary-dark);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid var(--ifm-color-primary-lighter);
+  transition: all 0.2s ease;
+}
+
+.techItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(var(--ifm-color-primary-rgb), 0.2);
+}
+
+.experienceAchievements {
+  margin-top: 2rem;
+}
+
+.achievementsTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-800);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.achievementsTitle::before {
+  content: '🏆';
+  font-size: 1.2rem;
+}
+
+.achievementsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.achievementItem {
+  position: relative;
+  padding: 0.75rem 0;
+  padding-left: 1.5rem;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.5;
+  transition: all 0.3s ease;
+}
+
+.achievementItem::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  color: var(--ifm-color-primary);
+  font-size: 0.7rem;
+  transition: all 0.3s ease;
+}
+
+.achievementItem:hover {
+  color: var(--ifm-color-emphasis-900);
+  transform: translateX(5px);
+}
+
+.achievementItem:hover::before {
+  color: var(--ifm-color-primary-dark);
+  transform: translateX(3px);
+}
+
+/* Dark theme adjustments */
+[data-theme='dark'] .experience {
+  background: var(--ifm-color-emphasis-100);
+}
+
+[data-theme='dark'] .experienceCard {
+  background: var(--ifm-color-emphasis-200);
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .timeline::before {
+  background: var(--ifm-color-emphasis-500);
+}
+
+[data-theme='dark'] .timelineMarker {
+  background: var(--ifm-color-emphasis-500);
+}
+
+[data-theme='dark'] .timelineItemActive .timelineMarker {
+  box-shadow: 0 0 0 4px rgba(var(--ifm-color-primary-rgb), 0.3);
+}
+
+[data-theme='dark'] .techItem {
+  background: var(--ifm-color-primary-darkest);
+  color: var(--ifm-color-primary-lightest);
+  border: 1px solid var(--ifm-color-primary-darker);
+}
+
+[data-theme='dark'] .experiencePeriod {
+  background: var(--ifm-color-primary-darkest);
+  color: var(--ifm-color-primary-lightest);
+}
+
+/* Responsive Design */
+@media (max-width: 996px) {
+  .experienceContainer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .timeline {
+    display: flex;
+    overflow-x: auto;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+  }
+  
+  .timeline::before {
+    display: none;
+  }
+  
+  .timelineProgress {
+    display: none;
+  }
+  
+  .timelineItem {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 1rem;
+    margin-right: 1rem;
+    background: var(--ifm-card-background-color);
+    border-radius: 12px;
+    border: 1px solid var(--ifm-color-emphasis-200);
+    min-width: 200px;
+  }
+  
+  .timelineItemActive {
+    background: rgba(var(--ifm-color-primary-rgb), 0.1);
+    border-color: var(--ifm-color-primary);
+  }
+  
+  .timelineMarker {
+    display: none;
+  }
+  
+  .timelineContent {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .experience {
+    padding: 3rem 0;
+  }
+  
+  .experienceCard {
+    padding: 2rem;
+    margin: 0 1rem;
+  }
+  
+  .experiencePosition {
+    font-size: 1.3rem;
+  }
+  
+  .experienceCompany {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .timeline {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .timelineItem {
+    min-width: 150px;
+  }
+  
+  .techGrid {
+    gap: 0.4rem;
+  }
+  
+  .techItem {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experienceCard {
+    padding: 1.5rem;
+    margin: 0;
+  }
+  
+  .experiencePosition {
+    font-size: 1.2rem;
+  }
+  
+  .timelineItem {
+    min-width: 120px;
+    padding: 0.75rem;
+  }
+  
+  .timelineCompany {
+    font-size: 0.9rem;
+  }
+  
+  .timelinePeriod {
+    font-size: 0.8rem;
+  }
+}
+
 /* Dark theme adjustments */
 [data-theme='dark'] .hero {
   background: linear-gradient(135deg, var(--ifm-color-primary-darkest) 0%, var(--ifm-background-color) 100%);
