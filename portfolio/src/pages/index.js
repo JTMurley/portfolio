@@ -235,7 +235,7 @@ const experiences = [
     description: 'Senior software Engineer within the cloud services team developing bespoke platforms',
     technologies: ['.NET', 'AWS', 'DynamoDB', 'API Gateway', 'Docker', 'React', 'GitLab CI/CD', 'SNS', 'Auth0', 'Docusaurus', 'Decap CMS', 'ECS', 'EC2', 'S3', '.NET Aspire', 'AWS CDK'],
     achievements: [
-      'Spearheaded the initiation and implementation of the companies first POC documentation hub that has now become the AFL SDP Doc Hub',
+      'Spearheaded the creation and implementation of the company\'s first proof-of-concept documentation hub, which has since evolved into the AFL SDP Doc Hub.',
       'Worked with as well as support multiple internal and external clients daily, including Sportsbet, Pointsbet, TAB, Sportcast, Dabble, AFL HQ and Collingwood',
       'Overhauled existing testing processes and created a new automated test harness enabling the creation of 500 new and existing AFL metrics in under 6 months.'
     ]
