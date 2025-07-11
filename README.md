@@ -1,7 +1,6 @@
 # JTMurley Portfolio
 
 <p align="center">
-  <!-- Integrated badges below -->
   <a href="#license"><img src="https://img.shields.io/github/license/JTMurley/portfolio" alt="License"></a>
   <a href="https://github.com/JTMurley/portfolio"><img src="https://img.shields.io/github/package-json/v/JTMurley/portfolio" alt="Version"></a>
   <a href="https://github.com/JTMurley/portfolio/commits/main"><img src="https://img.shields.io/github/last-commit/JTMurley/portfolio" alt="Last Commit"></a>
