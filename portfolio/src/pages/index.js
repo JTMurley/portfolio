@@ -230,7 +230,7 @@ const experiences = [
   {
     id: 1,
     company: 'Champion Data',
-    position: 'Senior Engineer',
+    position: 'Senior Software Engineer',
     period: '03/2023 - 06/2025',
     description: 'Senior software Engineer within the cloud services team developing bespoke platforms',
     technologies: ['.NET', 'AWS', 'DynamoDB', 'API Gateway', 'Docker', 'React', 'GitLab CI/CD', 'SNS', 'Auth0', 'Docusaurus', 'Decap CMS', 'ECS', 'EC2', 'S3', '.NET Aspire', 'AWS CDK'],
