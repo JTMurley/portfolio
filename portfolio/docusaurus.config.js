@@ -105,7 +105,7 @@ const config = {
           {to: '/docs/insights', label: 'insights', position: 'left'},
           {to: 'https://jtmurley.github.io/portfolio/admin', label: 'CMS', position: 'left'},
           {
-            href: '/portfolio/Jack_Murley_Resume.pdf',
+            href: 'https://jtmurley.github.io/portfolio/Jack_Murley_Resume.pdf',
             label: 'Resume',
             position: 'right',
             target: '_blank',
