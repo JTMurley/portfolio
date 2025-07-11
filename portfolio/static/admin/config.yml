@@ -4,6 +4,7 @@ backend:
   name: github
   branch: main
   repo: JTMurley/portfolio
+  base_url: https://sveltia-cms-auth.jack-murley.workers.dev/
 
 # These lines should *not* be indented
 media_folder: "static/img" # Media files will be stored in the repo under static/images/uploads

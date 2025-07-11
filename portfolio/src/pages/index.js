@@ -212,7 +212,7 @@ const projects = [
   {
     title: 'Portfolio Website',
     description: 'This website, built with 💖',
-    tech: ['React', 'Docusaurus ', 'Decap CMS', 'Algolia', 'PostHog Cloud'],
+    tech: ['React', 'Docusaurus ', 'Decap CMS', 'Algolia', 'PostHog Cloud', 'Cloudflare'],
     link: 'https://jtmurley.github.io/portfolio/',
     github: 'https://github.com/JTMurley/portfolio'
   },
