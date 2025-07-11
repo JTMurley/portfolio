@@ -552,5 +552,3 @@ export default function Home() {
     </Layout>
   );
 }
-
-//TODO, Add an job history roadmap
