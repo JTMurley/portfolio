@@ -6,27 +6,97 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Modern Blue/Purple Palette */
+  --ifm-color-primary: #3b82f6;
+  --ifm-color-primary-dark: #2563eb;
+  --ifm-color-primary-darker: #1d4ed8;
+  --ifm-color-primary-darkest: #1e40af;
+  --ifm-color-primary-light: #60a5fa;
+  --ifm-color-primary-lighter: #93c5fd;
+  --ifm-color-primary-lightest: #dbeafe;
+  
+  /* Secondary Colors */
+  --ifm-color-secondary: #8b5cf6;
+  --ifm-color-secondary-dark: #7c3aed;
+  --ifm-color-secondary-darker: #6d28d9;
+  --ifm-color-secondary-darkest: #5b21b6;
+  --ifm-color-secondary-light: #a78bfa;
+  --ifm-color-secondary-lighter: #c4b5fd;
+  --ifm-color-secondary-lightest: #ede9fe;
+  
+  /* Accent Colors */
+  --ifm-color-accent: #06b6d4;
+  --ifm-color-accent-dark: #0891b2;
+  --ifm-color-accent-light: #22d3ee;
+  --ifm-color-accent-lighter: #67e8f9;
+  
+  /* Success/Warning/Danger with modern touch */
+  --ifm-color-success: #10b981;
+  --ifm-color-warning: #f59e0b;
+  --ifm-color-danger: #ef4444;
+  
+  /* Enhanced Background Colors */
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #f8fafc;
+  
+  /* Text Colors with Better Contrast */
+  --ifm-color-emphasis-900: #0f172a;
+  --ifm-color-emphasis-800: #1e293b;
+  --ifm-color-emphasis-700: #334155;
+  --ifm-color-emphasis-600: #475569;
+  --ifm-color-emphasis-500: #64748b;
+  --ifm-color-emphasis-400: #94a3b8;
+  --ifm-color-emphasis-300: #cbd5e1;
+  --ifm-color-emphasis-200: #e2e8f0;
+  --ifm-color-emphasis-100: #f1f5f9;
+  --ifm-color-emphasis-50: #f8fafc;
+  
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(59, 130, 246, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Enhanced Dark Mode with Modern Purple/Blue Theme */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #60a5fa;
+  --ifm-color-primary-dark: #3b82f6;
+  --ifm-color-primary-darker: #2563eb;
+  --ifm-color-primary-darkest: #1d4ed8;
+  --ifm-color-primary-light: #93c5fd;
+  --ifm-color-primary-lighter: #bfdbfe;
+  --ifm-color-primary-lightest: #dbeafe;
+  
+  /* Secondary Colors for Dark Mode */
+  --ifm-color-secondary: #a78bfa;
+  --ifm-color-secondary-dark: #8b5cf6;
+  --ifm-color-secondary-darker: #7c3aed;
+  --ifm-color-secondary-darkest: #6d28d9;
+  --ifm-color-secondary-light: #c4b5fd;
+  --ifm-color-secondary-lighter: #ddd6fe;
+  --ifm-color-secondary-lightest: #ede9fe;
+  
+  /* Accent Colors for Dark Mode */
+  --ifm-color-accent: #22d3ee;
+  --ifm-color-accent-dark: #06b6d4;
+  --ifm-color-accent-light: #67e8f9;
+  --ifm-color-accent-lighter: #a5f3fc;
+  
+  /* Dark Mode Backgrounds */
+  --ifm-background-color: #0f172a;
+  --ifm-background-surface-color: #1e293b;
+  
+  /* Dark Mode Text Colors */
+  --ifm-color-emphasis-900: #f8fafc;
+  --ifm-color-emphasis-800: #f1f5f9;
+  --ifm-color-emphasis-700: #e2e8f0;
+  --ifm-color-emphasis-600: #cbd5e1;
+  --ifm-color-emphasis-500: #94a3b8;
+  --ifm-color-emphasis-400: #64748b;
+  --ifm-color-emphasis-300: #475569;
+  --ifm-color-emphasis-200: #334155;
+  --ifm-color-emphasis-100: #1e293b;
+  --ifm-color-emphasis-50: #0f172a;
+  
+  --docusaurus-highlighted-code-line-bg: rgba(96, 165, 250, 0.2);
 }
 
 .docusaurus-announcement-bar .clean-btn {

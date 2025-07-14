@@ -4,9 +4,270 @@ import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
 
-const skills = [
-  '.NET', 'Microservices', 'AWS', 'Serverless', 'Auth0', 'Docusaurus', 'IAC', 'Lambda', 'DynamoDB', 'CI/CD - Gitlab, Github Actions, Jenkins'
-];
+const skillsByCategory = {
+  'Programming Languages': [
+    {
+      name: '.NET',
+      level: 5,
+      jobsUsed: 3,
+      yearsExperience: 4,
+      story: "From Leidos microservices to Champion Data sports platforms serving millions of AFL fans.",
+      keyHighlight: "Built scalable sports data processing systems"
+    },
+    {
+      name: 'Python',
+      level: 4,
+      jobsUsed: 2,
+      yearsExperience: 2,
+      story: "Robotics research at Deakin to sports analytics automation, achieving 64% efficiency gains.",
+      keyHighlight: "MADRL algorithms & data processing"
+    },
+    {
+      name: 'TypeScript',
+      level: 4,
+      jobsUsed: 3,
+      yearsExperience: 3,
+      story: "Modern web development across finance and sports platforms with type-safe applications.",
+      keyHighlight: "Type-safe React applications"
+    },
+    {
+      name: 'C++',
+      level: 3,
+      jobsUsed: 1,
+      yearsExperience: 1,
+      story: "High-performance robotics applications and system-level programming at Deakin University.",
+      keyHighlight: "Robotics & system programming"
+    },
+    {
+      name: 'JavaScript',
+      level: 4,
+      jobsUsed: 3,
+      yearsExperience: 4,
+      story: "Full-stack development from frontend interactions to Node.js backend services.",
+      keyHighlight: "Full-stack web development"
+    }
+  ],
+  'Database Technology': [
+    {
+      name: 'DynamoDB',
+      level: 4,
+      jobsUsed: 2,
+      yearsExperience: 3,
+      story: "NoSQL mastery for serverless applications, handling millions of sports data records daily.",
+      keyHighlight: "Serverless data architecture"
+    },
+    {
+      name: 'PostgreSQL',
+      level: 4,
+      jobsUsed: 2,
+      yearsExperience: 2,
+      story: "Relational database expertise for finance systems and complex business logic at Carsales.",
+      keyHighlight: "Finance system data modeling"
+    },
+    {
+      name: 'SQL Server',
+      level: 4,
+      jobsUsed: 2,
+      yearsExperience: 3,
+      story: "Enterprise database solutions and performance optimization for large-scale applications.",
+      keyHighlight: "Enterprise data solutions"
+    },
+    {
+      name: 'Elasticsearch',
+      level: 3,
+      jobsUsed: 1,
+      yearsExperience: 2,
+      story: "Search and analytics engine implementation, replacing inefficient SQL queries at Leidos.",
+      keyHighlight: "Search & analytics optimization"
+    }
+  ],
+  'Auth and Security': [
+    {
+      name: 'Auth0',
+      level: 4,
+      jobsUsed: 1,
+      yearsExperience: 2,
+      story: "Identity management for sports platforms, securing millions of user interactions daily.",
+      keyHighlight: "Sports platform security"
+    },
+    {
+      name: 'Keycloak',
+      level: 4,
+      jobsUsed: 1,
+      yearsExperience: 2,
+      story: "SSO implementation replacing legacy Kerberos systems, reducing technical debt significantly.",
+      keyHighlight: "SSO & identity federation"
+    },
+    {
+      name: 'OAuth 2.0',
+      level: 4,
+      jobsUsed: 3,
+      yearsExperience: 3,
+      story: "Secure API authentication across finance and sports platforms with modern standards.",
+      keyHighlight: "API security & standards"
+    },
+    {
+      name: 'JWT',
+      level: 4,
+      jobsUsed: 3,
+      yearsExperience: 3,
+      story: "Stateless authentication for microservices, enabling scalable distributed systems.",
+      keyHighlight: "Microservices authentication"
+    }
+  ],
+  'CI/CD and Code Management': [
+    {
+      name: 'GitLab CI/CD',
+      level: 5,
+      jobsUsed: 1,
+      yearsExperience: 2,
+      story: "Advanced pipeline orchestration at Champion Data, automating sports platform deployments.",
+      keyHighlight: "Sports platform automation"
+    },
+    {
+      name: 'GitHub Actions',
+      level: 4,
+      jobsUsed: 1,
+      yearsExperience: 1,
+      story: "Successfully migrated 25+ legacy Jenkins pipelines to modern GitHub Actions at Carsales.",
+      keyHighlight: "Legacy pipeline modernization"
+    },
+    {
+      name: 'Jenkins',
+      level: 4,
+      jobsUsed: 2,
+      yearsExperience: 3,
+      story: "Enterprise CI/CD implementation with quality gates and automated testing pipelines.",
+      keyHighlight: "Enterprise automation"
+    },
+    {
+      name: 'Git',
+      level: 5,
+      jobsUsed: 4,
+      yearsExperience: 5,
+      story: "Version control mastery across all professional roles, from branching strategies to code reviews.",
+      keyHighlight: "Code collaboration & versioning"
+    },
+    {
+      name: 'SonarQube',
+      level: 3,
+      jobsUsed: 1,
+      yearsExperience: 2,
+      story: "Code quality analysis and technical debt management for enterprise applications.",
+      keyHighlight: "Code quality assurance"
+    }
+  ],
+  'Architectures': [
+    {
+      name: 'Microservices',
+      level: 5,
+      jobsUsed: 3,
+      yearsExperience: 4,
+      story: "Designed and implemented microservices across Leidos, Carsales, and Champion Data platforms.",
+      keyHighlight: "Distributed system design"
+    },
+    {
+      name: 'Serverless',
+      level: 4,
+      jobsUsed: 2,
+      yearsExperience: 3,
+      story: "AWS Lambda and serverless architectures powering scalable sports data processing.",
+      keyHighlight: "Event-driven architecture"
+    },
+    {
+      name: 'Event-Driven',
+      level: 4,
+      jobsUsed: 2,
+      yearsExperience: 3,
+      story: "Asynchronous messaging and event sourcing for real-time sports data systems.",
+      keyHighlight: "Real-time data processing"
+    },
+    {
+      name: 'RESTful APIs',
+      level: 5,
+      jobsUsed: 4,
+      yearsExperience: 5,
+      story: "API design and implementation across all professional roles, serving millions of requests.",
+      keyHighlight: "Scalable API architecture"
+    }
+  ],
+  'Client and Stakeholder Management': [
+    {
+      name: 'Technical Leadership',
+      level: 4,
+      jobsUsed: 2,
+      yearsExperience: 3,
+      story: "Led technical decisions and mentored teams at Carsales and Champion Data.",
+      keyHighlight: "Team leadership & mentoring"
+    },
+    {
+      name: 'Stakeholder Communication',
+      level: 5,
+      jobsUsed: 4,
+      yearsExperience: 5,
+      story: "Daily interaction with clients including Sportsbet, TAB, AFL HQ, and Collingwood FC.",
+      keyHighlight: "Multi-client relationship management"
+    },
+    {
+      name: 'Requirements Gathering',
+      level: 4,
+      jobsUsed: 3,
+      yearsExperience: 4,
+      story: "Translated business needs into technical solutions across finance and sports domains.",
+      keyHighlight: "Business-technical translation"
+    },
+    {
+      name: 'Project Management',
+      level: 4,
+      jobsUsed: 3,
+      yearsExperience: 4,
+      story: "Championed major releases and OKRs, delivering projects on time and within scope.",
+      keyHighlight: "Delivery management"
+    }
+  ],
+  'Tooling': [
+    {
+      name: 'Docker',
+      level: 4,
+      jobsUsed: 3,
+      yearsExperience: 4,
+      story: "Containerization expert from basic deployments to complex microservices orchestration.",
+      keyHighlight: "Container orchestration"
+    },
+    {
+      name: 'Kubernetes',
+      level: 3,
+      jobsUsed: 2,
+      yearsExperience: 2,
+      story: "Container orchestration for scalable applications and high availability systems.",
+      keyHighlight: "High availability systems"
+    },
+    {
+      name: 'AWS CDK',
+      level: 4,
+      jobsUsed: 1,
+      yearsExperience: 2,
+      story: "Infrastructure as Code for Champion Data's sports platforms using TypeScript CDK.",
+      keyHighlight: "Infrastructure automation"
+    },
+    {
+      name: 'Terraform',
+      level: 3,
+      jobsUsed: 2,
+      yearsExperience: 2,
+      story: "Multi-cloud infrastructure provisioning and management across different environments.",
+      keyHighlight: "Multi-cloud infrastructure"
+    },
+    {
+      name: 'Postman',
+      level: 4,
+      jobsUsed: 4,
+      yearsExperience: 4,
+      story: "API testing and documentation across all professional roles and projects.",
+      keyHighlight: "API testing & documentation"
+    }
+  ]
+};
 
 // Progress Bar Component
 function ProgressBar() {
@@ -347,6 +608,24 @@ function AnimatedTitle() {
 
 function HeroSection() {
   const {siteConfig} = useDocusaurusContext();
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if screen is mobile on mount and when window resizes
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 996);
+    };
+    
+    // Initial check
+    checkMobile();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <section className={styles.hero}>
       <ParticleSystem />
@@ -359,7 +638,8 @@ function HeroSection() {
             </h1>
             <AnimatedTitle />
             <p className={styles.heroDescription}>
-              Expertise in both Microsoft and AWS ecosystems, utilising cutting-edge technologies to develop and deploy not only bespoke software solutions but also modular and scalable serverless and microservices to support existing monolithic applications. Can you find the easter egg in the background 🥸.
+              Expertise in both Microsoft and AWS ecosystems, utilising cutting-edge technologies to develop and deploy bespoke software solutions and scalable serverless microservices.
+              {!isMobile && " Can you find the easter egg in the background 🥸."}
             </p>
             <div className={styles.heroButtons}>
               <a href="#projects" className={clsx('button button--primary button--lg', styles.ctaButton)}>
@@ -379,8 +659,8 @@ function HeroSection() {
               </div>
               <div className={styles.codeContent}>
                 <div className={styles.codeLine}>
-                  <span className={styles.codeKeyword}>const</span> 
-                  <span className={styles.codeVariable}> engineer</span> 
+                  <span className={styles.codeKeyword}>const</span>
+                  <span className={styles.codeVariable}> engineer</span>
                   <span className={styles.codeOperator}> = </span>
                   <span className={styles.codeString}>{`{`}</span>
                 </div>
@@ -390,17 +670,35 @@ function HeroSection() {
                   <span className={styles.codeString}>'Jack'</span>
                   <span className={styles.codeOperator}>,</span>
                 </div>
-                <div className={styles.codeLine}>
-                  <span className={styles.codeProperty}>  skills</span>
-                  <span className={styles.codeOperator}>: </span>
-                  <span className={styles.codeString}>['.NET', 'AWS', 'Docker', 'IAC', 'Client and Stakeholder management']</span>
-                  <span className={styles.codeOperator}>,</span>
-                </div>
-                <div className={styles.codeLine}>
-                  <span className={styles.codeProperty}>  willMakeYouLaugh</span>
-                  <span className={styles.codeOperator}>: </span>
-                  <span className={styles.codeBoolean}>true</span>
-                </div>
+                {!isMobile ? (
+                  <>
+                    <div className={styles.codeLine}>
+                      <span className={styles.codeProperty}>  skills</span>
+                      <span className={styles.codeOperator}>: </span>
+                      <span className={styles.codeString}>['.NET', 'AWS', 'Docker', 'IAC', 'Client and Stakeholder management']</span>
+                      <span className={styles.codeOperator}>,</span>
+                    </div>
+                    <div className={styles.codeLine}>
+                      <span className={styles.codeProperty}>  willMakeYouLaugh</span>
+                      <span className={styles.codeOperator}>: </span>
+                      <span className={styles.codeBoolean}>true</span>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className={styles.codeLine}>
+                      <span className={styles.codeProperty}>  skills</span>
+                      <span className={styles.codeOperator}>: </span>
+                      <span className={styles.codeString}>['.NET', 'AWS', 'Docker']</span>
+                      <span className={styles.codeOperator}>,</span>
+                    </div>
+                    <div className={styles.codeLine}>
+                      <span className={styles.codeProperty}>  mobile</span>
+                      <span className={styles.codeOperator}>: </span>
+                      <span className={styles.codeBoolean}>true</span>
+                    </div>
+                  </>
+                )}
                 <div className={styles.codeLine}>
                   <span className={styles.codeString}>{`}`}</span>
                 </div>
@@ -414,14 +712,186 @@ function HeroSection() {
 }
 
 function SkillsSection() {
+  // Simple state to track expanded categories and skills
+  const [expandedCategory, setExpandedCategory] = useState(null);
+  const [expandedSkills, setExpandedSkills] = useState({});
+  
+  // Category color and icon mapping
+  const getCategoryColor = (categoryName) => {
+    const colors = {
+      'Programming Languages': 'var(--ifm-color-primary)',
+      'Database Technology': 'var(--ifm-color-secondary)',
+      'Auth and Security': 'var(--ifm-color-danger)',
+      'CI/CD and Code Management': 'var(--ifm-color-success)',
+      'Architectures': 'var(--ifm-color-accent)',
+      'Client and Stakeholder Management': 'var(--ifm-color-warning)',
+      'Tooling': 'var(--ifm-color-secondary-dark)'
+    };
+    return colors[categoryName] || 'var(--ifm-color-primary)';
+  };
+
+  const getCategoryIcon = (categoryName) => {
+    const icons = {
+      'Programming Languages': '💻',
+      'Database Technology': '🗄️',
+      'Auth and Security': '🔒',
+      'CI/CD and Code Management': '🚀',
+      'Architectures': '🏗️',
+      'Client and Stakeholder Management': '🤝',
+      'Tooling': '🛠️'
+    };
+    return icons[categoryName] || '💻';
+  };
+
+  // Proficiency display helpers
+  const getProficiencyEmojis = (level) => {
+    const emojiMap = {
+      1: '⭐',
+      2: '⭐⭐',
+      3: '⭐⭐⭐',
+      4: '⭐⭐⭐⭐',
+      5: '⭐⭐⭐⭐⭐'
+    };
+    return emojiMap[level] || '⭐';
+  };
+
+  const getProficiencyLabel = (level) => {
+    const labelMap = {
+      1: 'Beginner',
+      2: 'Novice',
+      3: 'Intermediate',
+      4: 'Advanced',
+      5: 'Expert'
+    };
+    return labelMap[level] || 'Beginner';
+  };
+
+  // Toggle functions for expansion/collapse
+  const toggleCategory = (categoryName) => {
+    setExpandedCategory(expandedCategory === categoryName ? null : categoryName);
+  };
+
+  const toggleSkill = (skillId) => {
+    setExpandedSkills(prev => ({
+      ...prev,
+      [skillId]: !prev[skillId]
+    }));
+  };
+
   return (
     <section className={styles.skills}>
       <div className="container">
-        <h2 className={styles.sectionTitle}>Tech I Like</h2>
-        <div className={styles.skillsGrid}>
-          {skills.map((skill, idx) => (
-            <div key={idx} className={styles.skillTag}>
-              {skill}
+        <h2 className={styles.sectionTitle}>Technical Expertise</h2>
+        <p className={styles.skillsIntro}>
+          Technologies and skills I've mastered across my career. Tap to explore details.
+        </p>
+        
+        <div className={styles.skillsCategories}>
+          {Object.entries(skillsByCategory).map(([categoryName, skills], categoryIdx) => (
+            <div
+              key={categoryName}
+              className={`${styles.skillCategory} ${expandedCategory === categoryName ? styles.expanded : ''}`}
+              style={{
+                '--category-color': getCategoryColor(categoryName),
+                '--animation-delay': `${categoryIdx * 0.1}s`
+              }}
+            >
+              {/* Category Header */}
+              <div
+                className={styles.categoryHeader}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleCategory(categoryName);
+                }}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    toggleCategory(categoryName);
+                    e.preventDefault();
+                  }
+                }}
+              >
+                <div className={styles.categoryHeaderContent}>
+                  <span className={styles.categoryIcon}>
+                    {getCategoryIcon(categoryName)}
+                  </span>
+                  <h3 className={styles.categoryTitle}>{categoryName}</h3>
+                  <span className={styles.skillCount}>({skills.length})</span>
+                </div>
+                <span className={`${styles.expandIcon} ${expandedCategory === categoryName ? styles.expanded : ''}`}>
+                  ▼
+                </span>
+              </div>
+              
+              {/* Category Content - Only render if expanded */}
+              {expandedCategory === categoryName && (
+                <div className={styles.categoryContent}>
+                  {skills.map((skill, skillIdx) => {
+                    const skillId = `${categoryName}-${skill.name}`;
+                    
+                    return (
+                      <div
+                        key={skill.name}
+                        className={styles.compactSkillCard}
+                        style={{
+                          '--skill-delay': `${skillIdx * 0.05}s`
+                        }}
+                      >
+                        {/* Skill Header */}
+                        <div
+                          className={styles.skillCardHeader}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            toggleSkill(skillId);
+                          }}
+                          role="button"
+                          tabIndex={0}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                              toggleSkill(skillId);
+                              e.preventDefault();
+                            }
+                          }}
+                        >
+                          <div className={styles.skillInfo}>
+                            <div className={styles.skillNameRow}>
+                              <h4 className={styles.skillName}>{skill.name}</h4>
+                              <span className={`${styles.skillExpandIcon} ${expandedSkills[skillId] ? styles.expanded : ''}`}>
+                                ▼
+                              </span>
+                            </div>
+                            <div className={styles.skillMeta}>
+                              <div className={styles.proficiencyRating}>
+                                <span className={styles.proficiencyEmojis}>
+                                  {getProficiencyEmojis(skill.level)}
+                                </span>
+                                <span className={styles.proficiencyLabel}>
+                                  {getProficiencyLabel(skill.level)}
+                                </span>
+                              </div>
+                              <span className={styles.skillExperience}>
+                                {skill.jobsUsed} companies • {skill.yearsExperience}+ years
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {/* Skill Content - Only render if expanded */}
+                        {expandedSkills[skillId] && (
+                          <div className={styles.skillContent}>
+                            <p className={styles.storyText}>{skill.story}</p>
+                            <div className={styles.keyHighlight}>
+                              <span className={styles.highlightLabel}>Key Impact:</span>
+                              <span className={styles.highlightText}>{skill.keyHighlight}</span>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           ))}
         </div>
