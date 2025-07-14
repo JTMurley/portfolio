@@ -10,9 +10,9 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'JTMurley Portfolio',
+  title: 'Portfolio',
   tagline: 'Cool stuff',
-  //favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.ico',
   trailingSlash: true,
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -135,8 +135,8 @@ const config = {
        announcementBar: {
         id: `announcementBar-v0`,
         content: `🚧 <b>This website is in early development (v0) and a work in progress. Content will change!</b> 🚧`,
-        backgroundColor: 'var(--ifm-background-color)', // or any CSS color value
-        textColor: 'var(--ifm-color-primary-darkest)',  // or any CSS color value
+        backgroundColor: 'var(--ifm-background-color)',
+        textColor: 'var(--ifm-color-primary-darkest)',
         isCloseable: true,
       },
     }),
