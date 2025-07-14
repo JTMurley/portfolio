@@ -509,7 +509,8 @@ function AnimatedTitle() {
     { text: 'Software Architect', icon: '🏗️' },
     { text: '.NET Specialist', icon: '⚡' },
     { text: 'Serverless Expert', icon: '🌐' },
-    { text: 'CI/CD Engineer', icon: '🔄' }
+    { text: 'CI/CD Engineer', icon: '🔄' },
+    { text: 'More buzz words', icon: '🐝' },
   ];
   
   const [currentIndex, setCurrentIndex] = useState(0);
