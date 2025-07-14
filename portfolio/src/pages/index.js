@@ -645,11 +645,11 @@ function HeroSection() {
                     <div className={styles.codeLine}>
                       <span className={styles.codeProperty}>  skills</span>
                       <span className={styles.codeOperator}>: </span>
-                      <span className={styles.codeString}>['.NET', 'AWS', 'Docker']</span>
+                      <span className={styles.codeString}>['.NET', 'AWS', 'Docker', 'IAC', 'Client and Stakeholder management']</span>
                       <span className={styles.codeOperator}>,</span>
                     </div>
                     <div className={styles.codeLine}>
-                      <span className={styles.codeProperty}>  mobile</span>
+                      <span className={styles.codeProperty}>  willMakeYouLaugh</span>
                       <span className={styles.codeOperator}>: </span>
                       <span className={styles.codeBoolean}>true</span>
                     </div>
