@@ -282,6 +282,69 @@ const experiences = [
   }
 ];
 
+// Smooth Animated Title Component
+function AnimatedTitle() {
+  const titles = [
+    { text: 'Full-Stack Engineer', icon: '💻' },
+    { text: 'Cloud Architect', icon: '☁️' },
+    { text: 'Microservices Developer', icon: '🔧' },
+    { text: 'AWS Solutions Builder', icon: '🚀' },
+    { text: 'DevOps Engineer', icon: '⚙️' },
+    { text: 'Software Architect', icon: '🏗️' },
+    { text: '.NET Specialist', icon: '⚡' },
+    { text: 'Serverless Expert', icon: '🌐' },
+    { text: 'CI/CD Engineer', icon: '🔄' }
+  ];
+  
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [displayText, setDisplayText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typeSpeed, setTypeSpeed] = useState(100);
+
+  useEffect(() => {
+    const currentTitle = titles[currentIndex].text;
+    
+    const handleTyping = () => {
+      if (!isDeleting) {
+        // Typing forward
+        if (displayText.length < currentTitle.length) {
+          setDisplayText(currentTitle.substring(0, displayText.length + 1));
+          setTypeSpeed(100 + Math.random() * 50); // Variable typing speed for realism
+        } else {
+          // Pause at end before deleting
+          setTimeout(() => setIsDeleting(true), 2000);
+        }
+      } else {
+        // Deleting
+        if (displayText.length > 0) {
+          setDisplayText(currentTitle.substring(0, displayText.length - 1));
+          setTypeSpeed(50); // Faster deletion
+        } else {
+          // Move to next title
+          setIsDeleting(false);
+          setCurrentIndex((prevIndex) => (prevIndex + 1) % titles.length);
+          setTypeSpeed(500); // Pause before starting new word
+        }
+      }
+    };
+
+    const timer = setTimeout(handleTyping, typeSpeed);
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting, currentIndex, typeSpeed, titles]);
+
+  return (
+    <h2 className={`${styles.heroSubtitle} ${styles.animatedTitle}`}>
+      <span className={styles.titleIcon}>
+        {titles[currentIndex].icon}
+      </span>
+      <span className={styles.titleText}>
+        {displayText}
+        <span className={styles.cursor}>|</span>
+      </span>
+    </h2>
+  );
+}
+
 function HeroSection() {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -294,7 +357,7 @@ function HeroSection() {
             <h1 className={styles.heroTitle}>
               Hi, I'm <span className={styles.nameHighlight}>Jack</span>
             </h1>
-            <h2 className={styles.heroSubtitle}>Full-Stack Engineer</h2>
+            <AnimatedTitle />
             <p className={styles.heroDescription}>
               Expertise in both Microsoft and AWS ecosystems, utilising cutting-edge technologies to develop and deploy not only bespoke software solutions but also modular and scalable serverless and microservices to support existing monolithic applications. Can you find the easter egg in the background 🥸.
             </p>

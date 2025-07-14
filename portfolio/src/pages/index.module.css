@@ -132,6 +132,231 @@
   font-weight: 400;
 }
 
+/* Enhanced Animated Title Styles */
+.animatedTitle {
+  position: relative;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: 0.25rem 0;
+  margin-bottom: 1.5rem;
+  background: none;
+  border: none;
+  box-shadow: none;
+  animation: none;
+}
+
+.titleIcon {
+  font-size: 1.6rem;
+  margin-right: 0.5rem;
+  animation: iconBounce 4s ease-in-out infinite;
+  display: inline-block;
+  filter: drop-shadow(0 0 4px rgba(var(--ifm-color-primary-rgb), 0.3));
+}
+
+.titleText {
+  /* Fallback color for browsers that don't support background-clip */
+  color: var(--ifm-color-primary);
+  background: linear-gradient(
+    135deg,
+    #ff6b6b,
+    #4ecdc4,
+    #45b7d1,
+    #96ceb4,
+    #feca57,
+    #ff9ff3,
+    #54a0ff
+  );
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+  font-size: 1.5rem;
+  animation: rainbowShift 12s ease-in-out infinite;
+  position: relative;
+  letter-spacing: 0.3px;
+  display: inline-block;
+}
+
+/* Ensure text is visible if background-clip fails */
+@supports not (-webkit-background-clip: text) {
+  .titleText {
+    color: var(--ifm-color-primary);
+    background: none;
+    -webkit-text-fill-color: initial;
+  }
+}
+
+.cursor {
+  color: var(--ifm-color-primary);
+  animation: cursorBlink 1s ease-in-out infinite;
+  font-weight: 300;
+  margin-left: 2px;
+}
+
+@keyframes titleGlow {
+  0% {
+    box-shadow:
+      0 8px 32px rgba(var(--ifm-color-primary-rgb), 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    box-shadow:
+      0 12px 40px rgba(var(--ifm-color-primary-rgb), 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes rainbowShift {
+  0%, 100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg) saturate(1.2);
+  }
+  25% {
+    background-position: 100% 0%;
+    filter: hue-rotate(90deg) saturate(1.4);
+  }
+  50% {
+    background-position: 100% 100%;
+    filter: hue-rotate(180deg) saturate(1.6);
+  }
+  75% {
+    background-position: 0% 100%;
+    filter: hue-rotate(270deg) saturate(1.4);
+  }
+}
+
+@keyframes textPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes haloShift {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes cursorPulse {
+  0%, 50% {
+    opacity: 1;
+    transform: translateY(-50%) scaleY(1);
+  }
+  51%, 100% {
+    opacity: 0.3;
+    transform: translateY(-50%) scaleY(0.8);
+  }
+}
+
+@keyframes iconBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes cursorBlink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes typewriter {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+/* Dark theme adjustments for enhanced animated title */
+[data-theme='dark'] .animatedTitle {
+  background: linear-gradient(135deg,
+    rgba(var(--ifm-color-primary-rgb), 0.1),
+    rgba(var(--ifm-color-primary-rgb), 0.15),
+    rgba(var(--ifm-color-primary-rgb), 0.1)
+  );
+  border: 1px solid rgba(var(--ifm-color-primary-rgb), 0.3);
+  box-shadow:
+    0 8px 32px rgba(var(--ifm-color-primary-rgb), 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='dark'] .titleText {
+  /* Fallback color for dark theme */
+  color: var(--ifm-color-primary-light);
+  background: linear-gradient(
+    135deg,
+    #ff8a80,
+    #80cbc4,
+    #81d4fa,
+    #a5d6a7,
+    #ffcc02,
+    #f8bbd9,
+    #82b1ff
+  );
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Ensure dark theme text is visible if background-clip fails */
+@supports not (-webkit-background-clip: text) {
+  [data-theme='dark'] .titleText {
+    color: var(--ifm-color-primary-light);
+    background: none;
+    -webkit-text-fill-color: initial;
+  }
+}
+
+[data-theme='dark'] .cursor {
+  color: var(--ifm-color-primary-light);
+}
+
+[data-theme='dark'] .titleText::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 138, 128, 0.2),
+    rgba(128, 203, 196, 0.2),
+    rgba(129, 212, 250, 0.2),
+    rgba(165, 214, 167, 0.2)
+  );
+}
+
+[data-theme='dark'] .titleText::after {
+  background: linear-gradient(
+    to bottom,
+    #ff8a80,
+    #80cbc4,
+    #81d4fa
+  );
+  box-shadow: 0 0 15px rgba(var(--ifm-color-primary-rgb), 0.6);
+}
+
 .heroDescription {
   font-size: 1.1rem;
   color: var(--ifm-color-emphasis-600);
