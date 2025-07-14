@@ -712,8 +712,8 @@ function HeroSection() {
 }
 
 function SkillsSection() {
-  // Simple state to track expanded categories and skills
-  const [expandedCategory, setExpandedCategory] = useState(null);
+  // State to track expanded categories and skills
+  const [expandedCategories, setExpandedCategories] = useState({});
   const [expandedSkills, setExpandedSkills] = useState({});
   
   // Category color and icon mapping
@@ -768,7 +768,10 @@ function SkillsSection() {
 
   // Toggle functions for expansion/collapse
   const toggleCategory = (categoryName) => {
-    setExpandedCategory(expandedCategory === categoryName ? null : categoryName);
+    setExpandedCategories(prev => ({
+      ...prev,
+      [categoryName]: !prev[categoryName]
+    }));
   };
 
   const toggleSkill = (skillId) => {
@@ -790,7 +793,7 @@ function SkillsSection() {
           {Object.entries(skillsByCategory).map(([categoryName, skills], categoryIdx) => (
             <div
               key={categoryName}
-              className={`${styles.skillCategory} ${expandedCategory === categoryName ? styles.expanded : ''}`}
+              className={`${styles.skillCategory} ${expandedCategories[categoryName] ? styles.expanded : ''}`}
               style={{
                 '--category-color': getCategoryColor(categoryName),
                 '--animation-delay': `${categoryIdx * 0.1}s`
@@ -819,13 +822,13 @@ function SkillsSection() {
                   <h3 className={styles.categoryTitle}>{categoryName}</h3>
                   <span className={styles.skillCount}>({skills.length})</span>
                 </div>
-                <span className={`${styles.expandIcon} ${expandedCategory === categoryName ? styles.expanded : ''}`}>
+                <span className={`${styles.expandIcon} ${expandedCategories[categoryName] ? styles.expanded : ''}`}>
                   ▼
                 </span>
               </div>
               
               {/* Category Content - Only render if expanded */}
-              {expandedCategory === categoryName && (
+              {expandedCategories[categoryName] && (
                 <div className={styles.categoryContent}>
                   {skills.map((skill, skillIdx) => {
                     const skillId = `${categoryName}-${skill.name}`;
@@ -881,10 +884,6 @@ function SkillsSection() {
                         {expandedSkills[skillId] && (
                           <div className={styles.skillContent}>
                             <p className={styles.storyText}>{skill.story}</p>
-                            <div className={styles.keyHighlight}>
-                              <span className={styles.highlightLabel}>Key Impact:</span>
-                              <span className={styles.highlightText}>{skill.keyHighlight}</span>
-                            </div>
                           </div>
                         )}
                       </div>
