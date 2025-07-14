@@ -116,13 +116,6 @@ const skillsByCategory = {
       jobsUsed: 2,
       yearsExperience: 2,
       story: "Enterprise CI/CD implementation with quality gates and automated testing pipelines.",
-    },
-    {
-      name: 'Git',
-      level: 4,
-      jobsUsed: 4,
-      yearsExperience: 5,
-      story: "Used Git my entire career, i'm good at it but i cant make my git commits look like a guitar string"
     }
   ],
   'Architectures': [
@@ -220,6 +213,13 @@ const skillsByCategory = {
       jobsUsed: 4,
       yearsExperience: 4,
       story: "Dashboarding and monitoring for performance insights and system health"
+    },
+    {
+      name: 'Git',
+      level: 4,
+      jobsUsed: 4,
+      yearsExperience: 5,
+      story: "Used Git my entire career, i'm good at it but i cant make my git commits look like a guitar string"
     }
   ]
 };
