@@ -1,0 +1,98 @@
+---
+slug: integrating-posthog
+title: Integrating PostHog into Docusaurus
+description: Step-by-step guide to implement PostHog analytics in a Docusaurus site for user behavior tracking and insights
+---
+
+## Introduction
+
+[PostHog](https://posthog.com) is an open-source product analytics platform that helps track user interactions with applications. This guide covers integrating PostHog into a Docusaurus site to:
+
+- Track page views and user journeys
+- Capture custom events and feature usage
+- Analyze user behavior through session recordings
+- Implement A/B testing and feature flags
+
+PostHog is recommended for its:
+- Open-source nature with self-hosting capability
+- Generous free tier for small projects
+- Embedded iframe support for sharing insights
+
+## Prerequisites
+
+- Docusaurus v2.0+ project
+- [PostHog account](https://app.posthog.com/signup)
+- Basic React knowledge
+
+## Installation
+
+1. Install the PostHog Docusaurus plugin:
+
+```bash npm2yarn
+yarn add posthog-docusaurus
+```
+
+2. Initialize PostHog in your Docusaurus configuration (`docusaurus.config.js`):
+
+```javascript docusaurus.config.js
+plugins: [
+    [
+      "posthog-docusaurus",
+      {
+        apiKey: process.env.POSTHOG_API_KEY,
+        appUrl: "https://us.i.posthog.com", // Optional, defaults to "https://us.i.posthog.com"
+        enableInDevelopment: false, // Set to true to enable in development
+      },
+    ],
+  ],
+```
+
+**Important**: Never commit API keys to your repository. Use environment variables instead.
+
+## Configuration
+
+### Environment Variables
+
+Set the `POSTHOG_API_KEY` as an environment variable:
+
+1. Create `.env` file in project root:
+```ini
+POSTHOG_API_KEY=your_api_key_here
+```
+
+2. Add `.env` to `.gitignore`:
+```gitignore
+# .gitignore
+.env
+```
+
+### CI/CD Setup (GitHub Actions Example)
+
+1. Add secret in repository settings (Settings → Secrets → Actions)
+2. Reference in workflow file:
+
+```yaml .github/workflows/deploy.yml
+steps:
+  - name: Deploy to GitHub Pages
+    env:
+      POSTHOG_API_KEY: ${{ secrets.POSTHOG_API_KEY }}
+    # ... rest of deployment steps
+```
+
+## Troubleshooting
+
+### Events not appearing
+1. Verify network requests in browser dev tools
+2. Confirm API key matches PostHog project
+3. Ensure `enableInDevelopment` is true for local testing
+
+### Session recordings missing
+1. Check PostHog project settings
+2. Verify no ad blockers are interfering
+3. Confirm no CSP restrictions block PostHog domains
+
+### Feature flags not working
+1. Check flag activation in PostHog dashboard
+2. Verify correct user/distinct ID propagation
+
+For additional support, refer to [PostHog documentation](https://posthog.com/docs).
