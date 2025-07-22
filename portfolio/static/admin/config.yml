@@ -7,15 +7,15 @@ backend:
   base_url: https://sveltia-cms-auth.jack-murley.workers.dev/
 
 # These lines should *not* be indented
-media_folder: "static/img" # Media files will be stored in the repo under static/images/uploads
-public_folder: "/img/" # The src attribute for uploaded media will begin with /images/uploads
+media_folder: "portfolio/static/img" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/img/" # The src attribute for uploaded media will begin with /images/uploads TODO: check this
 
 collections:
 - name: blog
   label: "blog"
-  folder: blog
+  folder: portfolio/blog
   identifier_field: title
-  extension: md
+  extension: mdx
   widget: "list"
   create: true
   slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
@@ -33,4 +33,3 @@ collections:
         - { name: name, label: Name, widget: string }
         - { name: title, label: Title, widget: string }
         - { name: url, label: URL, widget: string }
-        - { name: imageUrl, label: ImageURL, widget: string }
