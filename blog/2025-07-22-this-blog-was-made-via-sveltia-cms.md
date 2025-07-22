@@ -1,0 +1,12 @@
+---
+title: This blog was made via Sveltia CMS
+slug: test-blog
+tags:
+  - test
+authors:
+  - name: Jack Murley
+    title: Just a Dev
+    url: https://github.com/JTMurley
+    imageUrl: https://github.com/JTMurley
+---
+Something something body
