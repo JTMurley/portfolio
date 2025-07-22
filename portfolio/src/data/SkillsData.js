@@ -19,7 +19,7 @@ export const getCategoryIcon = (categoryName) => {
     'CI/CD and Code Management': '🚀',
     'Architectures': '🏗️',
     'Client and Stakeholder Management': '🤝',
-    'Tooling': '🛠️'
+    'Tooling': '🛠️',
   };
   return icons[categoryName] || '💻';
 };
