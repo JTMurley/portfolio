@@ -71,7 +71,7 @@ export default function HeroSection() {
                 {!isMobile ? (
                   <>
                     <div className={styles.codeLine}>
-                      <span className={styles.codeProperty}>  skills</span>
+                      <span className={styles.codeProperty}>  specialities</span>
                       <span className={styles.codeOperator}>: </span>
                       <span className={styles.codeString}>['.NET', 'AWS', 'Docker', 'IAC', 'Client and Stakeholder management']</span>
                       <span className={styles.codeOperator}>,</span>
@@ -80,12 +80,17 @@ export default function HeroSection() {
                       <span className={styles.codeProperty}>  willMakeYouLaugh</span>
                       <span className={styles.codeOperator}>: </span>
                       <span className={styles.codeBoolean}>true</span>
+                    </div>
+                    <div className={styles.codeLine}>
+                      <span className={styles.codeProperty}>  funFact</span>
+                      <span className={styles.codeOperator}>: </span>
+                      <span className={styles.codeString}>'Ran a marathon with only 2 weeks training'</span>
                     </div>
                   </>
                 ) : (
                   <>
                     <div className={styles.codeLine}>
-                      <span className={styles.codeProperty}>  skills</span>
+                      <span className={styles.codeProperty}>  specialities</span>
                       <span className={styles.codeOperator}>: </span>
                       <span className={styles.codeString}>['.NET', 'AWS', 'Docker', 'IAC', 'Client and Stakeholder management']</span>
                       <span className={styles.codeOperator}>,</span>
@@ -94,6 +99,11 @@ export default function HeroSection() {
                       <span className={styles.codeProperty}>  willMakeYouLaugh</span>
                       <span className={styles.codeOperator}>: </span>
                       <span className={styles.codeBoolean}>true</span>
+                    </div>
+                    <div className={styles.codeLine}>
+                      <span className={styles.codeProperty}>  funFact</span>
+                      <span className={styles.codeOperator}>: </span>
+                      <span className={styles.codeString}>'Ran a marathon with only 2 weeks training'</span>
                     </div>
                   </>
                 )}

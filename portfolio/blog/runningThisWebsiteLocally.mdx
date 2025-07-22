@@ -1,0 +1,28 @@
+---
+slug: running-this-website-locally
+title: How to run this website locally
+authors: [jtmurley]
+tags: [cms, docusaurus]
+unlisted: true
+---
+
+## Prerequisites
+
+- Node JS v 18+
+- yarn
+
+## Running the development server
+
+yarn start
+
+### Running analytics locally
+
+Due to posthog cloud being a cloud based service, you cant run it locally (you can technically but it is very involved - https://posthog.com/handbook/engineering/developing-locally), however you can debug actions 
+sent to the server locally instead. In order to do this you just need to go into the doucsarous.config.js file and set enableInDevelopment to true and provide your api key locally. 
+Now you will be able to send requests to posthog cloud from your local development server.
+
+#### Filtering out requests made from your local development
+
+In order to 
+
+### Running CMS locally
