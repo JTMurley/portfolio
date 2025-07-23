@@ -3,12 +3,12 @@ import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 // Import components
-import ProgressBar from '../components/home/ProgressBar';
-import HeroSection from '../components/home/HeroSection';
-import SkillsSection from '../components/home/SkillsSection';
-import ProjectsSection from '../components/home/ProjectsSection';
-import ExperienceSection from '../components/home/ExperienceSection';
-import ContactSection from '../components/home/ContactSection';
+import ProgressBar from '../components/home/progressBar';
+import HeroSection from '../components/home/heroSection';
+import SkillsSection from '../components/home/skillsSection';
+import ProjectsSection from '../components/home/projectsSection';
+import ExperienceSection from '../components/home/experienceSection';
+import ContactSection from '../components/home/contactSection';
 
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
