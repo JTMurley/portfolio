@@ -26,10 +26,14 @@ collections:
     - label: "Tags"
       name: "tags"
       widget: "list"
+      required: false
+      field: { label: "Tag", widget: "string" }
+      required: false
+      field: { label: "Tag", widget: "string" }
     - label: "Authors"
       name: "authors"
       widget: "list"
       fields:
-        - { name: name, label: Name, widget: string }
-        - { name: title, label: Title, widget: string }
-        - { name: url, label: URL, widget: string }
+        - { name: name, label: Name, widget: string, required: false }
+        - { name: title, label: Title, widget: string, required: false }
+        - { name: url, label: URL, widget: string, required: false }
