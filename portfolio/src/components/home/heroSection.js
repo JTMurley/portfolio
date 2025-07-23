@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import styles from '../../pages/index.module.css';
-import ParticleSystem from './ParticleSystem';
+import ParticleSystem from './particleSystem';
 import FloatingElements from './floatingElements';
 import AnimatedTitle from './animatedTitle';
 
