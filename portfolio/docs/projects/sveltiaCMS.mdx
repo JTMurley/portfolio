@@ -3,4 +3,250 @@ slug: integrating-sveltia-cms
 title: Integrating Sveltia CMS into Docusaurus
 ---
 
-Coming soon
+# Sveltia CMS Integration Guide
+
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+```
+
+## Prerequisites
+
+- Existing Docusaurus v2.4.1+ project
+- GitHub account connected to the repository
+- Node.js v18+ installed
+- Cloudflare if you want to use git gateway
+
+## File Structure Setup
+
+1. Create the admin directory in your static folder:
+```bash
+mkdir -p static/admin
+```
+
+2. Add these required files:
+```mdx-code-block
+<CodeBlock language="text" title="Admin Directory Structure">
+static/admin/
+├── config.yml    # Main CMS configuration
+└── index.html    # CMS entry point
+</CodeBlock>
+```
+
+### CMS Entry Point
+```html title="static/admin/index.html"
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Sveltia CMS</title>
+    <script src="https://unpkg.com/sveltia-cms@latest/dist/sveltia-cms.js"></script>
+  </head>
+  <body>
+    <script>
+      SveltiaCMS.init({
+        config: 'config.yml'
+      });
+    </script>
+  </body>
+</html>
+```
+
+### Sample Configuration (`static/admin/config.yml`)
+<CodeBlock language="yaml" title="config.yml" showLineNumbers>
+{`${`\
+backend:
+  name: github
+  branch: main
+  repo: JTMurley/portfolio
+  base_url: https://sveltia-cms-auth.jack-murley.workers.dev/ - Only needed if your using git gateway 
+
+media_folder: "portfolio/static/img"
+public_folder: "/img/"
+
+collections:
+  - name: blog
+    label: "blog"
+    folder: portfolio/blog
+    extension: mdx
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: slug, label: Slug, widget: string }
+      - { name: body, label: Body, widget: markdown }
+      - { name: tags, label: Tags, widget: list }
+      - name: authors
+        label: Authors
+        widget: list
+        fields:
+          - { name: name, label: Name, widget: string }
+          - { name: title, label: Title, widget: string }
+          - { name: url, label: URL, widget: string }
+`}`}
+</CodeBlock>
+
+### Docusaurus Integration
+The CMS is accessible via the navbar link configured in `docusaurus.config.js`:
+
+<CodeBlock language="javascript" title="docusaurus.config.js" showLineNumbers={[106]}>
+{`navbar: {
+  items: [
+    {
+      to: 'https://jtmurley.github.io/portfolio/admin',
+      label: 'CMS',
+      position: 'left'
+    }
+  ]
+}`}
+</CodeBlock>
+
+## Creating Content
+
+1. Navigate to `/admin` on your Docusaurus site
+2. Select the "blog" collection
+3. Click "New Entry"
+4. Fill in fields using the CMS interface:
+
+Field Type | MDX Equivalent
+---|---
+`string` | Front matter property
+`markdown` | MDX content body
+`list` | YAML array
+
+Example blog post front matter:
+```mdx-code-block
+<CodeBlock language="mdx">
+{`---
+title: "New Blog Post"
+slug: "new-post"
+tags: [guide, cms]
+authors:
+  - name: John Doe
+    title: Technical Writer
+    url: https://example.com
+---
+
+Your MDX content here
+`}
+</CodeBlock>
+```
+
+## Using MDX Components
+
+Sveltia CMS supports Docusaurus MDX components in content:
+
+```mdx-code-block
+<CodeBlock language="mdx">
+{`import Admonition from '@theme/Admonition';
+
+<Admonition type="tip">
+  This is a Docusaurus admonition component
+</Admonition>
+`}
+</CodeBlock>
+```
+
+## Deployment Considerations
+
+- Set `base_url` for production authentication
+- Configure GitHub repo permissions
+- Media files are stored in `static/img`
+- Enable local development with:
+  ```yaml
+  local_backend: true
+  ```
+
+## Troubleshooting Guide
+
+<Tabs>
+<TabItem value="auth" label="Authentication Issues">
+
+### Common Symptoms
+- 401 Unauthorized errors
+- GitHub login failures
+- CORS policy violations
+
+### Resolution Steps:
+1. Verify OAuth application settings:
+```bash
+curl -X GET https://api.github.com/applications/YOUR_CLIENT_ID
+```
+2. Check network traffic in DevTools Console
+3. Validate CORS headers:
+```bash
+curl -I https://your-cms-base-url -H "Origin: https://your-domain.com"
+```
+4. Rotate client secrets if compromised
+
+</TabItem>
+
+<TabItem value="content" label="Content Sync Issues">
+
+### Diagnostic Checklist:
+1. Repository permissions
+```bash
+gh api /repos/{owner}/{repo}/collaborators/{username}/permission
+```
+2. Branch protection rules
+3. File path consistency
+```yaml title="Config Validation"
+media_folder: "static/img"  # Should match actual directory
+```
+4. Merge conflict resolution status
+
+:::note
+Always check GitHub Actions logs for deployment errors
+:::
+</TabItem>
+</Tabs>
+
+## Advanced Usage
+
+:::info Using Components
+Use Docusaurus components directly in your content with MDX syntax:
+:::
+
+### Component Examples
+
+```mdx
+import DocCardList from '@theme/DocCardList';
+
+<Tabs groupId="os">
+  <TabItem value="windows" label="Windows">
+    PowerShell commands...
+  </TabItem>
+</Tabs>
+
+:::warning Important
+Always test content locally before deploying
+:::
+```
+
+### Git Gateway Integration
+
+For GitHub Pages deployments, configure the authentication proxy:
+
+```yaml title="config.yml Authentication Setup"
+backend:
+  name: github
+  base_url: https://your-deployed-auth-proxy.com
+  auth_endpoint: api/auth
+```
+
+1. Deploy the [Sveltia CMS Auth Proxy](https://github.com/sveltia/sveltia-cms-auth):
+```bash
+npm install
+npm run deploy
+```
+
+:::note Production Considerations
+- Set environment variables for `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET`
+- Configure custom domain with SSL encryption
+:::
+
+:::tip Troubleshooting
+If receiving CORS errors, verify the proxy's Access-Control-Allow-Origin header includes your domain:
+```bash
+curl -I https://your-auth-proxy.com -H "Origin: https://your-domain.com"
+```
+:::

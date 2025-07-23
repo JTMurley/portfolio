@@ -21,6 +21,7 @@ This portfolio website serves as my own professional showcase and also just dump
 - **Deployment**: GitHub Pages
 - **CMS**: Sveltia CMS
 - **Analytics**: PostHog
+- **Search**: Algolia
 
 ## 📋 Project Structure
 
@@ -61,7 +62,7 @@ The site is configured for deployment to GitHub Pages using GitHub Actions. The 
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/JTMurley/portfolio/issues).
+Sadly this project isn't open for others to contribute to, but if you want to steal anything in the repo feel free to! Just be wary of the current issues, [issues page](https://github.com/JTMurley/portfolio/issues).
 
 ## 📄 License
 
