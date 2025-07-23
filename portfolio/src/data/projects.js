@@ -9,8 +9,6 @@ export const projects = [
   {
     title: 'Track That Mate - TTM - WIP',
     description: 'Re-thinking how calorie tracking is done, peer pressure never felt so good',
-    tech: ['.NET', 'AWS', 'Lambda', 'DynamoDB', "API Gateway"],
-    link: '#',
-    github: '#'
+    tech: ['.NET', 'AWS', 'Lambda', 'DynamoDB', "API Gateway"]
   }
 ];

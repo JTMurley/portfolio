@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import styles from '../../pages/index.module.css';
 import ParticleSystem from './ParticleSystem';
-import FloatingElements from './FloatingElements';
-import AnimatedTitle from './AnimatedTitle';
+import FloatingElements from './floatingElements';
+import AnimatedTitle from './animatedTitle';
 
 export default function HeroSection() {
   const [isMobile, setIsMobile] = useState(false);

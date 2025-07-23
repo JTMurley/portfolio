@@ -19,14 +19,20 @@ export default function ProjectsSection() {
                   </span>
                 ))}
               </div>
-              <div className={styles.projectLinks}>
-                <a href={project.link} className={styles.projectLink}>
-                  Live Demo →
-                </a>
-                <a href={project.github} className={styles.projectLink}>
-                  GitHub →
-                </a>
-              </div>
+              {(project.link || project.github) && (
+                <div className={styles.projectLinks}>
+                  {project.link && (
+                    <a href={project.link} className={styles.projectLink}>
+                      Live Demo →
+                    </a>
+                  )}
+                  {project.github && (
+                    <a href={project.github} className={styles.projectLink}>
+                      GitHub →
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
           ))}
         </div>
